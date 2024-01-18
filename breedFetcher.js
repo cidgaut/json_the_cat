@@ -3,7 +3,7 @@ const request = require('request');
 const apiUrl = "https://api.thecatapi.com/v1/breeds/search";
 const breedToSearch = process.argv[2]; // breed search is now enterred by the command line.
 
-const url = `${apiUrl}?q=${breedToSearch}`; // ?q= this means (? beginns query, q query, =assigned to cat breedtosearch)
+const url = `${apiUrl}?q=${breedToSearch}`; // ?q= this means (? beginns query, q query, = assigned to cat breedtosearch)
 
 request(url, (error, response, body) => { // 
   console.log('body:', body);// Print the HTML for the Google homepage. 
@@ -15,6 +15,11 @@ request(url, (error, response, body) => { //
   const data = JSON.parse(body); //body transformmed by json is stored in data
   console.log('data:', data); //print 
   console.log('type of data:', typeof data);
+
+  const searchTerm = breedToSearch.toLowerCase(); // Convert the arg input to lowercase for case-insensitive comparison
+
+  // Check if arg matches any id or name in the data array
+  
 });
 
 
