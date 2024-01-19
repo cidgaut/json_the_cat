@@ -6,10 +6,10 @@ const breedToSearch = process.argv[2]; // breed search is now enterred by the co
 const url = `${apiUrl}?q=${breedToSearch}`; // ?q= this means (? beginns query, q query, = assigned to cat breedtosearch)
 
 request(url, (error, response, body) => {
-  //console.log('body:', body);// Print the HTML for the Google homepage. 
-  ///console.log('type of body:', typeof body)                             
+  //console.log('body:', body);// Print the HTML for the Google homepage.
+  ///console.log('type of body:', typeof body)        
   if (error) {
-    console.log('error:', error); // Print the error if one occurred      
+    console.log('error:', error); // Print the error if one occurred 
     return;
   }
 
@@ -17,7 +17,7 @@ request(url, (error, response, body) => {
   
   
   const data = JSON.parse(body); //body transformmed by json is stored in data
-  console.log('data:', data); //print 
+  console.log('data:', data); //print
   //console.log('type of data:', typeof data);
 
   const searchTerm = breedToSearch.toLowerCase(); // Convert the arg input to lowercase for case-insensitive comparison
@@ -35,7 +35,7 @@ request(url, (error, response, body) => {
 });
 
 
-/* 
+/*
 console.logs
 body: []
 type of body: string
